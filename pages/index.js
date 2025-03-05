@@ -56,28 +56,30 @@ export default function Home({ popularPkgs, fourStarPkgs, threeStarPkgs }) {
             <div className="absolute inset-0">
               <Image
                 alt="background image"
-                src={'/img/bg-header-saad.png'}
+                src={"/img/bg-header-saad.png"}
                 fill
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                style={{ objectFit: "cover", objectPosition: "center" }}
                 className="opacity-10"
               />
             </div>
             <div className="relative z-10 flex flex-col items-center gap-8">
-              <h1 className="text-3xl font-bold text-[#00454A]">All Inclusive Umrah Packages with Guided Tour</h1>
+              <h1 className="text-3xl font-bold text-[#00454A]">
+                All Inclusive Umrah Packages with Guided Tour
+              </h1>
               <p className="text-[#00454A] font-medium max-w-md text-center">
-                All packages include flights, visa processing,
-                accommodation near Haram, ground transport,
-                and a guided tour. Meals are optional.
+                All packages include flights, visa processing, accommodation
+                near Haram, ground transport, and a guided tour. Meals are
+                optional.
               </p>
               <Image
                 alt="arrow"
-                src={'/assets/arrow.svg'}
+                src={"/assets/arrow.svg"}
                 width={50}
                 height={50}
                 className="relative left-[120px] top-[10px]"
               />
-              <Link 
-                href={'#query-form-section'} 
+              <Link
+                href={"#query-form-section"}
                 className="text-sm cursor-pointer text-white font-semibold bg-[#D4A10F] hover:bg-[#c29414] transition-colors px-4 py-2.5 rounded-full"
               >
                 Get Quote - It&apos;s free
@@ -86,7 +88,6 @@ export default function Home({ popularPkgs, fourStarPkgs, threeStarPkgs }) {
           </div>
         </div>
 
-
         {/* <div id="header-content" className="z-10 h-full flex-1 px-3 py-10 flex flex-col items-center justify-center gap-5">
           <div id="header-text-wrapper" className="max-w-xl p-7 sm:p-10 rounded-xl flex flex-col gap-7">
             <p className="tracking-wide header-text font-bold text-4xl text-white">Plan Your Sacred Journey With Our Exclusive Travel Packages</p>
@@ -94,7 +95,6 @@ export default function Home({ popularPkgs, fourStarPkgs, threeStarPkgs }) {
             <Link scroll={false} href={`/#pkg-listing-section`} className="text-center w-min min-w-36 bg-teal-900 hover:bg-teal-800 transition-colors duration-300 text-sm p-3 text-white rounded-full">Book Now</Link>
           </div>
         </div> */}
-
       </header>
       <main className="flex flex-col gap-24 bgOverlay">
         <BgOverlay />
@@ -130,18 +130,34 @@ export default function Home({ popularPkgs, fourStarPkgs, threeStarPkgs }) {
             >
               Watch Now
             </button> */}
-            <a target="_blank" href="https://www.youtube.com/@alhabibtraveluk" type="button" className="text-center min-w-48 w-min bg-teal-900 hover:bg-teal-800 transition-colors duration-300 text-sm p-3 text-white rounded-full">Visit YouTube Channel</a>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/@alhabibtraveluk"
+              type="button"
+              className="text-center min-w-48 w-min bg-teal-900 hover:bg-teal-800 transition-colors duration-300 text-sm p-3 text-white rounded-full"
+            >
+              Visit YouTube Channel
+            </a>
           </div>
-          <iframe
+          <video
+            // id="yt-video-iframe"
+            className="w-full max-w-[600px] h-[320px] rounded-xl"
+            controls
+            autoplay
+          >
+            <source src="videos/youtubevideo.mp4" type="video/mp4" />
+          </video>
+
+          {/* <iframe
             id="yt-video-iframe"
             className="w-full max-w-[600px] rounded-xl"
-            src="https://www.youtube.com/embed/PP2JlHwupqE?si=jvieRT0a5MDbCmze"
+            src="videos/youtubevideo.mp4"
             title="Cheapest Umrah Package from United Kingdom (UK)"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-          ></iframe>
+          ></iframe> */}
         </div>
 
         <div
@@ -215,26 +231,26 @@ export async function getStaticProps() {
         popularPkgs: [],
         fourStarPkgs: [],
         threeStarPkgs: [],
-      }
-    }
+      },
+    };
   }
 
   var packages = await Package.find({}).lean(); // fetch all packages
   var popularPkgs = packages.filter((pkg) => pkg.rating === 5);
   var fourStarPkgs = packages.filter((pkg) => pkg.rating === 4);
   var threeStarPkgs = packages.filter((pkg) => pkg.rating === 3);
-  var packages = await Package.find({ type: 'Umrah' }).lean() // fetch all packages
-  var popularPkgs = packages.filter(pkg => pkg.rating === 5);
-  var fourStarPkgs = packages.filter(pkg => pkg.rating === 4);
-  var threeStarPkgs = packages.filter(pkg => pkg.rating === 3);
+  var packages = await Package.find({ type: "Umrah" }).lean(); // fetch all packages
+  var popularPkgs = packages.filter((pkg) => pkg.rating === 5);
+  var fourStarPkgs = packages.filter((pkg) => pkg.rating === 4);
+  var threeStarPkgs = packages.filter((pkg) => pkg.rating === 3);
 
   return {
     props: {
       popularPkgs: serializePackages(popularPkgs),
       fourStarPkgs: serializePackages(fourStarPkgs),
       threeStarPkgs: serializePackages(threeStarPkgs),
-    }
-  }
+    },
+  };
 }
 
 // Fetch packages with Server side rendering

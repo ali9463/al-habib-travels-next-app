@@ -13,21 +13,31 @@ export default function Reviews({padding=true}) {
           </div>
           {/* Reviews container */}
           <div className="flex gap-5 justify-center flex-wrap items-center">
-            <Testemonial 
-              name={"Seibar Wakefield"}
-              msg={"Assalam o Alaikum, Brother and sisters it is highly recommended company.We have dealt with them regarding some queries they have provided us very good services and in professional way.They are real gentlemans."}
-              rating={5}
-            />
-            <Testemonial 
-              name={"Abitha Ameen"}
-              msg={"Ali Raza is really helpful in finding us the right package and the cheapest price. Even helped with a last minute date change as well and he sorted out our transport on the spot. Al Habib Travel is highly recommended company. will see you next year and also will refer your company to friends and family."}
-              rating={5}
-            />
-            <Testemonial 
-              name={"Aisha Saddique"}
-              msg={"Al Habib travel is the best and trusted travel agency in London I search Umrah booking and then find them in You tube I talk to them and they gave me good advice for booking and provided furthur convenience in the procedure."}
-              rating={5}
-            />
+    
+            <video className="w-full max-w-[300px] h-[250px] rounded-xl"
+            controls
+            autoplay
+            >
+              <source src="videos\test1.mp4" type="video/mp4" />
+            </video>
+            <video className="w-full max-w-[300px] h-[250px] rounded-xl"
+            controls
+            autoplay
+            >
+              <source src="videos\test2.mp4" type="video/mp4" />
+            </video>
+            <video className="w-full max-w-[300px] h-[250px] rounded-xl"
+            controls
+            autoplay
+            >
+              <source src="videos\test3.mp4" type="video/mp4" />
+            </video>
+            <video className="w-full max-w-[300px] h-[250px] rounded-xl"
+            controls
+            autoplay
+            >
+              <source src="videos\test4.mp4" type="video/mp4" />
+            </video>
           </div>
 
           <div className="flex gap-5 flex-wrap items-center justify-center">
